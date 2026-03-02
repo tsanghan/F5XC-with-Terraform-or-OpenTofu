@@ -38,6 +38,15 @@ cat <<'EOF' >>"$HOME/.bashrc"
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+alias k=kubectl
+alias e=exit
+source <(k completion bash)
+complete -o default -F __start_kubectl k
+source <(yq shell-completion bash)
+eval "$(direnv hook bash)"
+# eval "$(starship init bash)"
+eval "$(fzf --bash)"
 EOF
 
 source "$HOME/.bashrc"
@@ -50,6 +59,8 @@ chmod +x "$HOME/.local/bin/kubectl"
 
 cp ./eget.toml ~/.config/eget
 ./eget.sh
+
+eget -D
 
 #
 # Install Terraform
@@ -78,3 +89,4 @@ chmod +x install-opentofu.sh
 # Remove the installer:
 rm -f install-opentofu.sh
 "$HOME/.local/bin/tofu" version
+
