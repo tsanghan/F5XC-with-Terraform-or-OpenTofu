@@ -16,15 +16,10 @@ cd f5xc
 
 ### Methods to Upload Files
 
-You can upload files to Google Cloud Shell using several methods:
+You can upload files to Google Cloud Shell using methods below:
 
 | Method | Description |
 | --- | --- |
-| **Cloud Shell Menu** | Click the Cloud icon in the menu bar and select "Upload." Choose the file you want to upload. |
-| **Cloud Shell Editor** | In the Cloud Shell Editor, right-click in the Explorer pane and select "Upload Files." |
+| **Cloud Shell Menu** | Click the 3-dot icon in the menu bar and select "Upload". Choose the file you want to upload. |
+| **Cloud Shell Editor** | In the Cloud Shell Editor, right-click in the Explorer pane and select "Upload...". |
 
-### Steps to Upload Files
-
-1.  **Open Google Cloud Console**: Go to [Google Cloud Console](https://console.cloud.google.com).
-2.  **Launch Cloud Shell**: Click the Cloud Shell icon (terminal symbol) in the top-right corner.
-3.  **Choose Upload Method**: Select one of the methods listed above to upload your files.
