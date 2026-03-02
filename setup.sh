@@ -10,12 +10,15 @@ fi
 EOF
 
 source "$HOME/.bashrc"
+#
 # Install Terraform
+#
 TERRAFORM_VER=$(curl -sSL https://api.github.com/repos/hashicorp/terraform/releases | jq -Mr '.[].tag_name' | egrep -v 'alpha|beta|rc' | head -1)
 curl -sSLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VER:1}/terraform_${TERRAFORM_VER:1}_linux_amd64.zip"
 unzip "terraform_${TERRAFORM_VER:1}_linux_amd64.zip" terraform
-mv terraform $HOME/.local/bin/terraform
-terraform version
+mv terraform "$HOME/.local/bin/terraform"
+"$HOME/.local/bin/terraform" version
+
 #
 # install OpenTofu
 #

@@ -7,7 +7,7 @@ bash ./setup.sh
 source ~/.bashrc
 cd "$HOME"
 mkdir Projects
-cd Projetcs
+cd Projects
 git clone https://github.com/learnf5/f5xc.git
 cd f5xc
 ```
