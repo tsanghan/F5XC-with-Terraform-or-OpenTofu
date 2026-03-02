@@ -49,8 +49,6 @@ eval "$(direnv hook bash)"
 eval "$(fzf --bash)"
 EOF
 
-source "$HOME/.bashrc"
-
 URL="https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 OUTPUT="$HOME/.local/bin/kubectl"
 download_file "$URL" "$OUTPUT"
@@ -60,7 +58,8 @@ chmod +x "$HOME/.local/bin/kubectl"
 cp ./eget.toml ~/.config/eget
 ./eget.sh
 
-eget -D
+source "$HOME/.bashrc"
+"$HOME/.local/bin/eget" -D
 
 #
 # Install Terraform
