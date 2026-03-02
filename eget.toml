@@ -1,0 +1,59 @@
+[global]
+  github_token = ""
+  system = "linux/amd64"
+  asset_filters = ["kind-linux-amd64"]
+  upgrade_only = true
+  show_hash = true
+  target = "~/.local/bin"
+
+["eza-community/eza"]
+  asset_filters = ["gnu.tar.gz"]
+  target = "~/.local/bin/eza"
+
+["sharkdp/fd"]
+  asset_filters = ["gnu.tar.gz"]
+  target = "~/.local/bin/fd"
+
+["sharkdp/bat"]
+  asset_filters = ["gnu.tar.gz"]
+  target = "~/.local/bin/bat"
+
+["direnv/direnv"]
+  asset_filters = ["linux-amd64"]
+  target = "~/.local/bin/direnv"
+
+["starship/starship"]
+  asset_filters = ["x86_64-unknown-linux-gnu.tar.gz"]
+  target = "~/.local/bin/starship"
+
+["junegunn/fzf"]
+  asset_filters = ["linux_amd64.tar.gz"]
+  target = "~/.local/bin/fzf"
+
+["ajeetdsouza/zoxide"]
+  asset_filters = ["x86_64-unknown-linux-musl.tar.gz"]
+  target = "~/.local/bin/zoxide"
+
+["jesseduffield/lazygit"]
+  asset_filters = ["linux_x86_64.tar.gz"]
+  target = "~/.local/bin/lazygit"
+
+["google/yamlfmt"]
+  asset_filters = ["x86_64", "Linux"]
+  target = "~/.local/bin/yamlfmt"
+
+["stackrox/kube-linter"]
+  asset_filters = ["kube-linter-linux.tar.gz"]
+  target = "~/.local/bin/kube-linter"
+
+["mikefarah/yq"]
+  asset_filters = ["yq", "^.tar.gz"]
+  target = "~/.local/bin"
+
+["jqlang/jq"]
+  asset_filters = ["jq", "linux-amd64"]
+  target = "~/.local/bin"
+
+["ducaale/xh"]
+  asset_filters = ["musl.tar.gz"]
+  target = "~/.local/bin"

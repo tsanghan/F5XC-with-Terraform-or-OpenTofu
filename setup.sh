@@ -1,6 +1,37 @@
 #!/usr/bin/env bash
 
+download_file() {
+    local url="$1"
+    local output="$2"
+    local max_retries="${3:-5}"
+    local attempt=0
+    local status=0
+
+    while (( attempt < max_retries )); do
+        ((attempt++))
+        echo "Attempt $attempt of $max_retries..."
+
+        curl -fL "$url" -o "$output"
+        status=$?
+
+        if (( status == 0 )); then
+            echo "Download succeeded."
+            return 0
+        else
+            echo "Download failed (curl exit code $status)."
+            sleep 2   # optional pause before next try
+        fi
+    done
+
+    echo "Error: file download failed after $max_retries attempts."
+    return 1
+}
+
+mkdir -p "$HOME/.kube"
+mkdir -p "$HOME/.config/eget"
 mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/Projects"
+
 cat <<'EOF' >>"$HOME/.bashrc"
 
 # set PATH so it includes user's private bin if it exists
@@ -10,6 +41,16 @@ fi
 EOF
 
 source "$HOME/.bashrc"
+
+URL="https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+OUTPUT="$HOME/.local/bin/kubectl"
+download_file "$URL" "$OUTPUT"
+
+chmod +x "$HOME/.local/bin/kubectl"
+
+cp ./eget.toml ~/.config/eget
+./eget.sh
+
 #
 # Install Terraform
 #
@@ -36,4 +77,4 @@ chmod +x install-opentofu.sh
 
 # Remove the installer:
 rm -f install-opentofu.sh
-tofu version
+"$HOME/.local/bin/tofu" version
