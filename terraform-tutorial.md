@@ -17,13 +17,13 @@ cat <<EOF >Makefile
 .PHONY: deep-clean
 
 clean:
-    rm -f *.tfstate
-    rm -f *.tfstate.backup
-    rm -f *.tfplan
+\trm -f *.tfstate
+\trm -f *.tfstate.backup
+\trm -f *.tfplan
 
 deep-clean:
-    rm -rf .terraform
-    rm -f .terraform.lock.hcl
+\trm -rf .terraform
+\trm -f .terraform.lock.hcl
 EOF
 ```
 

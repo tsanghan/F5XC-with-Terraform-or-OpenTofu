@@ -1,6 +1,6 @@
 # How to install Ansible-Core with UV - Part 1
 
-Latest version of `terraform` and `tofu` will be installed in $HOME/.local/bin.
+Latest version of `kubectl` will be installed in $HOME/.local/bin.
 
 ```bash
 bash ./setup.sh
