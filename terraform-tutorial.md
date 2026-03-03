@@ -11,38 +11,38 @@ cd f5xc/xc-waap-course/automation/terraform
 ```
 
 Creating a *Makefile*
-```bash
+```none
 cat <<EOF >Makefile
 .PHONY: clean
 .PHONY: deep-clean
 
 clean:
-        rm -f *.tfstate
-        rm -f *.tfstate.backup
-        rm -f *.tfplan
+    rm -f *.tfstate
+    rm -f *.tfstate.backup
+    rm -f *.tfplan
 
 deep-clean:
-        rm -rf .terraform
-        rm -f .terraform.lock.hcl
+    rm -rf .terraform
+    rm -f .terraform.lock.hcl
 EOF
 ```
 
 Creating a *Justfile*
-```bash
+```none
 cat <<EOF >Justfile
 clean:
-        rm -f *.tfstate
-        rm -f *.tfstate.backup
-        rm -f *.tfplan
+    rm -f *.tfstate
+    rm -f *.tfstate.backup
+    rm -f *.tfplan
 
 deep-clean:
-        rm -rf .terraform
-		rm -f .terraform.lock.hcl
+    rm -rf .terraform
+    rm -f .terraform.lock.hcl
 EOF
 ```
 
 Creating a *Taskfile*
-```bash
+```none
 cat <<EOF >Taskfile.yaml
 version: '3'
 
@@ -50,15 +50,15 @@ tasks:
   clean:
     desc: Remove Terraform state and plan files
     cmds:
-      - rm -f *.tfstate
-      - rm -f *.tfstate.backup
-      - rm -f *.tfplan
+    - rm -f *.tfstate
+    - rm -f *.tfstate.backup
+    - rm -f *.tfplan
 
   deep-clean:
     desc: Remove Terraform plugin/state directory
     cmds:
-      - rm -rf .terraform
-	  - rm -f .terraform.lock.hcl
+    - rm -rf .terraform
+    - rm -f .terraform.lock.hcl
 EOF
 ```
 
