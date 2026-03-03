@@ -12,18 +12,19 @@ cd f5xc/xc-waap-course/automation/terraform
 
 Creating a *Makefile*
 ```none
+TAB="$(printf '\t')"
 cat <<EOF >Makefile
 .PHONY: clean
 .PHONY: deep-clean
 
 clean:
-\trm -f *.tfstate
-\trm -f *.tfstate.backup
-\trm -f *.tfplan
+${TAB}rm -f *.tfstate
+${TAB}trm -f *.tfstate.backup
+${TAB}trm -f *.tfplan
 
 deep-clean:
-\trm -rf .terraform
-\trm -f .terraform.lock.hcl
+${TAB}rm -rf .terraform
+${TAB}rm -f .terraform.lock.hcl
 EOF
 ```
 
