@@ -8,7 +8,14 @@ source ~/.bashrc
 cd "$HOME/Projects"
 git clone https://github.com/learnf5/f5xc.git
 cd f5xc/xc-waap-course/automation/terraform
-cat <<EOF >Justfile
+```
+
+Creating a *Makefile*
+```bash
+cat <<EOF >Makefile
+.PHONY: clean
+.PHONY: deep-clean
+
 clean:
         rm -f *.tfstate
         rm -f *.tfstate.backup
@@ -18,6 +25,24 @@ deep-clean:
         rm -rf .terraform
         rm -f .terraform.lock.hcl
 EOF
+```
+
+Creating a *Justfile*
+```bash
+cat <<EOF >Justfile
+clean:
+        rm -f *.tfstate
+        rm -f *.tfstate.backup
+        rm -f *.tfplan
+
+deep-clean:
+        rm -rf .terraform
+		rm -f .terraform.lock.hcl
+EOF
+```
+
+Creating a *Taskfile*
+```bash
 cat <<EOF >Taskfile.yaml
 version: '3'
 
@@ -33,20 +58,7 @@ tasks:
     desc: Remove Terraform plugin/state directory
     cmds:
       - rm -rf .terraform
-      - rm -f .terraform.lock.hcl
-EOF
-cat <<EOF >Makefile
-.PHONY: clean
-.PHONY: deep-clean
-
-clean:
-        rm -f *.tfstate
-        rm -f *.tfstate.backup
-        rm -f *.tfplan
-
-deep-clean:
-        rm -rf .terraform
-        rm -f .terraform.lock.hcl
+	  - rm -f .terraform.lock.hcl
 EOF
 ```
 
