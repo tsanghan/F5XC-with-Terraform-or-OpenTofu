@@ -10,6 +10,17 @@ git clone https://github.com/learnf5/f5xc.git
 cd f5xc/xc-waap-course/automation/terraform
 ```
 
+Create empty *terraform.tfvars* file
+```none
+cat <<EOF >terraform.tfvars
+domains                  = ""
+name                     = ""
+namespace                = ""
+origin_pool_service_name = ""
+origin_pool_virtual_site = ""
+EOF
+```
+
 Creating a *Makefile*
 ```none
 # Source - https://stackoverflow.com/a/3733987
@@ -26,6 +37,7 @@ ${TAB}rm -f *.tfstate.backup
 ${TAB}rm -f *.tfplan
 
 deep-clean:
+${TAB}make clean
 ${TAB}rm -rf .terraform
 ${TAB}rm -f .terraform.lock.hcl
 EOF
@@ -40,6 +52,7 @@ clean:
     rm -f *.tfplan
 
 deep-clean:
+    just clean
     rm -rf .terraform
     rm -f .terraform.lock.hcl
 EOF
@@ -61,6 +74,7 @@ tasks:
   deep-clean:
     desc: Remove Terraform plugin/state directory
     cmds:
+    - task clean
     - rm -rf .terraform
     - rm -f .terraform.lock.hcl
 EOF

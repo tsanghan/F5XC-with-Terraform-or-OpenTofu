@@ -69,6 +69,7 @@ curl -sSLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VER:1}/terrafor
 unzip "terraform_${TERRAFORM_VER:1}_linux_amd64.zip" terraform
 mv terraform "$HOME/.local/bin/terraform"
 "$HOME/.local/bin/terraform" version
+"$HOME/.local/bin/terraform" -install-autocomplete
 
 #
 # install OpenTofu
@@ -88,4 +89,5 @@ chmod +x install-opentofu.sh
 # Remove the installer:
 rm -f install-opentofu.sh
 "$HOME/.local/bin/tofu" version
+"$HOME/.local/bin/tofu" -install-autocomplete
 
