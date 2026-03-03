@@ -57,3 +57,11 @@
 ["ducaale/xh"]
   asset_filters = ["musl.tar.gz"]
   target = "~/.local/bin"
+
+["casey/just"]
+  # asset_filters = [""]
+  target = "~/.local/bin"
+
+["go-task/task"]
+  asset_filters = ["linux_amd64.tar.gz"]
+  target = "~/.local/bin"
