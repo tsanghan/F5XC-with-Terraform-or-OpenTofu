@@ -12,6 +12,9 @@ cd f5xc/xc-waap-course/automation/terraform
 
 Creating a *Makefile*
 ```none
+# Source - https://stackoverflow.com/a/3733987
+# Posted by chuck
+# Retrieved 2026-03-03, License - CC BY-SA 2.5
 TAB="$(printf '\t')"
 cat <<EOF >Makefile
 .PHONY: clean
