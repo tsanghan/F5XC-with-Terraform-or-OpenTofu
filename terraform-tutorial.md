@@ -19,8 +19,8 @@ cat <<EOF >Makefile
 
 clean:
 ${TAB}rm -f *.tfstate
-${TAB}trm -f *.tfstate.backup
-${TAB}trm -f *.tfplan
+${TAB}rm -f *.tfstate.backup
+${TAB}rm -f *.tfplan
 
 deep-clean:
 ${TAB}rm -rf .terraform
